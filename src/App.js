@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, HashRouter } from 'react-router-dom';
 import ShoppingList from './components/ShoppingList';
 import Detail from './components/Detail'
 import dataFake from './dataFake';
 
 function App() {
+  console.log("a:" + process.env.PUBLIC_URL);
   const [items, setItems] = useState(dataFake);
   const onHandleAdd = (item) => {
     console.log(item);
@@ -22,9 +23,10 @@ function App() {
   const Abc = function () {
     return <h1>ABC</h1>;
   }
+
   return (
     <div className="App">
-      <Router basename={process.env.PUBLIC_URL + '/task-2'}>
+      <HashRouter basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route path="/" exact>
             <ShoppingList items={items} onAdd={onHandleAdd} onChange={onChangeStatus} />
@@ -36,7 +38,7 @@ function App() {
             <Abc />
           </Route>
         </Switch>
-      </Router>
+      </HashRouter>
     </div >
   );
 }
