@@ -11,7 +11,7 @@ const dataFake = [
         "name": "Banana",
         "image": "http://lorempixel.com/640/480/fashion",
         "price": "39.00",
-        "isSelected": false
+        "isSelected": true
     },
     {
         "id": "3",
