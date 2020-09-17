@@ -83,7 +83,7 @@ const ShoppingList = ({ items, onAdd, onChange }) => {
                                             <span className="font-weight-bold" style={{ color: "green" }}>Owned</span>
                                         </td>
                                         <td>
-                                            <Link to={`/${item.id}`} className="btn btn-primary">Detail</Link>
+                                            <Link to={`/detail-product/${item.id}`} className="btn btn-primary">Detail</Link>
                                         </td>
                                     </tr>
                                 ) :
@@ -100,7 +100,7 @@ const ShoppingList = ({ items, onAdd, onChange }) => {
                                             <span className="font-weight-bold" style={{ color: "red" }}>Not owned</span>
                                         </td>
                                         <td>
-                                            <Link to={`/${item.id}`} className="btn btn-primary">Detail</Link>
+                                            <Link to={`/detail-product/${item.id}`} className="btn btn-primary">Detail</Link>
                                         </td>
                                     </tr>
                                 )

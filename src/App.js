@@ -24,12 +24,12 @@ function App() {
   }
   return (
     <div className="App">
-      <Router basename="/task-2">
+      <Router>
         <Switch>
-          <Route path="/" exact>
+          <Route path="/task-2">
             <ShoppingList items={items} onAdd={onHandleAdd} onChange={onChangeStatus} />
           </Route>
-          <Route path="/:id">
+          <Route path="/detail-product/:id">
             <Detail items={items} />
           </Route>
           <Route path="/abc">
