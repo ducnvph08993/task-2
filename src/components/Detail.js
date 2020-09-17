@@ -9,17 +9,17 @@ const Detail = ({ items }) => {
     return (
         <div className="container">
             <h1 className="my-5">Detail Product</h1>
-            <div className="row">
-                <div className="col 4">
-                    <img src={item.image} alt="" style={{ width: 500, height: 450 }} />
+            <div className="card mx-auto mb-5" style={{ width: '36rem' }}>
+                <img className="card-img-top mx-auto mt-5 " src={item.image} style={{ width: 300, height: 250 }} alt="" />
+                <div className="card-body">
+                    <h5 className="card-title">{item.name}</h5>
+                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
-                <div className="col 8" >
-                    <h2 className="text-left">{item.name}</h2>
-                    <div className="button-share text-left mt-5">
-                        <CopyToClipboard text={url}>
-                            <button className="btn btn-primary">Share</button>
-                        </CopyToClipboard>
-                    </div>
+                <div className="card-body mb-3">
+                    <button className="btn btn-success" style={{ width: 66 }}>Add</button>
+                    <CopyToClipboard text={url}>
+                        <button className="btn btn-primary ml-3">Share</button>
+                    </CopyToClipboard>
                 </div>
             </div>
         </div >
