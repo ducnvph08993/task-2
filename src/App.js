@@ -19,19 +19,25 @@ function App() {
       ...items
     ])
   }
+  const Abc = function () {
+    return <h1>ABC</h1>;
+  }
   return (
     <div className="App">
-      <Router>
+      <Router basename="/task-2">
         <Switch>
-          <Route path="/task-2/" exact>
+          <Route path="/" exact>
             <ShoppingList items={items} onAdd={onHandleAdd} onChange={onChangeStatus} />
           </Route>
-          <Route path="/task-2/:id">
+          <Route path="/:id">
             <Detail items={items} />
+          </Route>
+          <Route path="/abc">
+            <Abc />
           </Route>
         </Switch>
       </Router>
-    </div>
+    </div >
   );
 }
 
