@@ -43,7 +43,7 @@ const ShoppingList = ({ items, onAdd, onChange }) => {
     }
     return (
         <div className='container'>
-            <h1 className="my-5">Shopping List</h1>
+            <h1 className="my-5">Shopping List.</h1>
             <div className='add-item row mb-5'>
                 <div className="form-group col-7">
                     <input type="text" value={inputValue} onChange={(event) => setInputValue(event.target.value)} className="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter email" />

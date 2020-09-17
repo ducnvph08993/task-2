@@ -24,9 +24,9 @@ function App() {
   }
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL + '/task-2'}>
         <Switch>
-          <Route path="/task-2">
+          <Route path="/" exact>
             <ShoppingList items={items} onAdd={onHandleAdd} onChange={onChangeStatus} />
           </Route>
           <Route path="/detail-product/:id">
