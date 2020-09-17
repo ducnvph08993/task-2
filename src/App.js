@@ -22,10 +22,10 @@ function App() {
   const Abc = function () {
     return <h1>ABC</h1>;
   }
-  console.log(process.env.PUBLIC_URL);
+  // console.log(process.env.PUBLIC_URL);
   return (
     <div className="App">
-      <HashRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <Switch>
           <Route path="/" exact>
             <ShoppingList items={items} onAdd={onHandleAdd} onChange={onChangeStatus} />
