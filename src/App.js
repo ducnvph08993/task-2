@@ -23,15 +23,14 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" exact>
+          <Route path="/task-2/" exact>
             <ShoppingList items={items} onAdd={onHandleAdd} onChange={onChangeStatus} />
           </Route>
-          <Route path="/:id">
+          <Route path="/task-2/:id">
             <Detail items={items} />
           </Route>
         </Switch>
       </Router>
-
     </div>
   );
 }
