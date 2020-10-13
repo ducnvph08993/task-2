@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { BrowserRouter, Switch, Route, HashRouter } from 'react-router-dom';
+import { Switch, Route, HashRouter } from 'react-router-dom';
 import ShoppingList from './components/ShoppingList';
 import Detail from './components/Detail'
 import dataFake from './dataFake';
@@ -19,10 +19,6 @@ function App() {
       ...items
     ])
   }
-  const Abc = function () {
-    return <h1>ABC</h1>;
-  }
-  // console.log(process.env.PUBLIC_URL);
   return (
     <div className="App">
       <HashRouter>
@@ -33,9 +29,6 @@ function App() {
           <Route path="/detail-product/:id">
             <Detail items={items} />
           </Route>
-          <Route path="/abc">
-            <Abc />
-          </Route>
         </Switch>
       </HashRouter>
     </div >
@@ -43,3 +36,4 @@ function App() {
 }
 
 export default App;
+

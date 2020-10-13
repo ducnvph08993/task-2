@@ -15,7 +15,7 @@ const ShoppingList = ({ items, onAdd, onChange }) => {
             const newItem = {
                 id: Math.random().toString(36).substr(2, 9),
                 name: inputValue,
-                isSlected: false,
+                isSelected: false,
                 image: null
             }
             onAdd(newItem);
@@ -28,7 +28,7 @@ const ShoppingList = ({ items, onAdd, onChange }) => {
                         const newItem = {
                             id: Math.random().toString(36).substr(2, 9),
                             name: inputValue,
-                            isSlected: false,
+                            isSelected: false,
                             image: url
                         }
                         console.log(newItem);
@@ -57,7 +57,7 @@ const ShoppingList = ({ items, onAdd, onChange }) => {
                 </div>
             </div>
             <div className='item-list row'>
-                <table className="table table-bordered col-12">
+                <table className="table table-bordered col-7">
                     <thead>
                         <tr>
                             <td>Mark</td>
@@ -69,44 +69,58 @@ const ShoppingList = ({ items, onAdd, onChange }) => {
                     </thead>
                     <tbody>
                         {items.map((item, index) => (
-                            (item.isSelected)
-                                ? (
-                                    <tr key={index}>
-                                        <td>
-                                            <input type="checkbox" aria-label="Checkbox for following text input" style={{ width: 25, height: 25 }} defaultChecked onClick={() => toggleHandle(index)} />
-                                        </td>
-                                        <td className="font-weight-bold">{item.name}</td>
-                                        <td>
-                                            <img src={item.image} style={{ width: 50, height: 50 }} alt='' />
-                                        </td>
-                                        <td>
-                                            <span className="font-weight-bold" style={{ color: "green" }}>Owned</span>
-                                        </td>
-                                        <td>
-                                            <Link to={`/detail-product/${item.id}`} className="btn btn-primary">Detail</Link>
-                                        </td>
-                                    </tr>
-                                ) :
-                                (
-                                    <tr key={index}>
-                                        <td>
-                                            <input type="checkbox" aria-label="Checkbox for following text input" style={{ width: 25, height: 25 }} onClick={() => toggleHandle(index)} />
-                                        </td>
-                                        <td className="font-weight-bold">{item.name}</td>
-                                        <td>
-                                            <img src={item.image} style={{ width: 50, height: 50 }} alt='' />
-                                        </td>
-                                        <td>
-                                            <span className="font-weight-bold" style={{ color: "red" }}>Not owned</span>
-                                        </td>
-                                        <td>
-                                            <Link to={`/detail-product/${item.id}`} className="btn btn-primary">Detail</Link>
-                                        </td>
-                                    </tr>
-                                )
+                            <tr key={index}>
+                                <td>
+                                    {
+                                        item.isSelected === false ?
+                                            (
+                                                <input type="checkbox" aria-label="Checkbox for following text input" style={{ width: 25, height: 25 }} onClick={() => toggleHandle(index)} />
+                                            ) :
+                                            (
+                                                <input type="checkbox" aria-label="Checkbox for following text input" style={{ width: 25, height: 25 }} defaultChecked onClick={() => toggleHandle(index)} />
+                                            )
+                                    }
+                                </td>
+                                <td className="font-weight-bold">{item.name}</td>
+                                <td>
+                                    <img src={item.image} style={{ width: 50, height: 50 }} alt='' />
+                                </td>
+                                <td>
+                                    {
+                                        item.isSelected === false ?
+                                            (
+                                                <span className="font-weight-bold" style={{ color: 'red' }}>
+                                                    Not owned
+                                                </span>
+                                            ) :
+                                            (
+                                                <span className="font-weight-bold" style={{ color: 'green' }}>
+                                                    Owned
+                                                </span>
+                                            )
+                                    }
+                                </td>
+                                <td>
+                                    <Link to={`/detail-product/${item.id}`} className="btn btn-primary">Detail</Link>
+                                </td>
+                            </tr>
                         ))}
                     </tbody>
                 </table>
+                <div className="owner col-5">
+                    <h3>Owned List</h3>
+                    {items.map((item, index) => (
+                        (
+                            (item.isSelected === true) ?
+                                (
+                                    <h5 key={index} style={{ textAlign: "center" }}>
+                                        <i className="far fa-check-circle" style={{ color: 'green', fontSize: 35 }}></i>
+                                        {item.name}
+                                    </h5>
+                                ) : null
+                        )
+                    ))}
+                </div>
             </div>
         </div >
     )
