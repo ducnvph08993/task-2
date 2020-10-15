@@ -31,7 +31,6 @@ const ShoppingList = ({ items, onAdd, onChange }) => {
                             isSelected: false,
                             image: url
                         }
-                        console.log(newItem);
                         onAdd(newItem);
                     })
             })

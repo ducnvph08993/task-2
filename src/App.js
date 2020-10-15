@@ -8,7 +8,6 @@ import dataFake from './dataFake';
 function App() {
   const [items, setItems] = useState(dataFake);
   const onHandleAdd = (item) => {
-    console.log(item);
     setItems([
       ...items,
       item

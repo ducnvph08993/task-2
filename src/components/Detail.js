@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const Detail = ({ items }) => {
@@ -16,7 +16,6 @@ const Detail = ({ items }) => {
                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
                 <div className="card-body mb-3">
-                    <Link className="btn btn-success" style={{ width: 66 }} to="/abc">Add</Link>
                     <CopyToClipboard text={url}>
                         <button className="btn btn-primary ml-3">Share</button>
                     </CopyToClipboard>
